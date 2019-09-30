@@ -18,14 +18,17 @@ steps:
     command: 'build'
     projects: 'test/SimpleAPI.Test/SimpleAPI.Test.csproj'
     arguments: '--configuration $(buildConfiguration)'
+  displayName: 'build Test: configuration $(buildConfiguration)'  
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: 'test/*/*.csproj'     
+    projects: 'test/*/*.csproj'
+  displayName: 'Run test for configuration $(buildConfiguration)'       
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
     projects: 'src/SimpleAPI/SimpleAPI.csproj'
     arguments: '--configuration $(buildConfiguration)'
+  displayName: 'build API: configuration $(buildConfiguration)'
