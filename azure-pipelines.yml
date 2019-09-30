@@ -11,12 +11,21 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  
+
 steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: |
-     src/SimpleAPI/SimpleAPI.csproj
-     test/SimpleAPI.Test/SimpleAPI.Test.csproj
-     # Pass a solution instead of a csproj.
+    projects: 'test/SimpleAPI.Test/SimpleAPI.Test.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: 'test/*/*.csproj'     
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: 'src/SimpleAPI/SimpleAPI.csproj'
+    arguments: '--configuration $(buildConfiguration)'
