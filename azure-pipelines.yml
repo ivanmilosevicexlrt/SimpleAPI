@@ -29,7 +29,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testRunner: xUnit
-    testResultsFiles: '/home/vsts/work/_temp/*.trx'
+    testResultsFiles: '**/*.trx'
     failTaskOnFailedTests: true  
   displayName: 'publish test results'
 
