@@ -24,7 +24,14 @@ steps:
   inputs:
     command: 'test'
     projects: 'test/*/*.csproj'
-  displayName: 'Run test for configuration $(buildConfiguration)'       
+  displayName: 'Run test for configuration $(buildConfiguration)' 
+
+- task: PublishTestResults@2
+  inputs:
+    testRunner: testResultsFormat
+    testResultsFiles: '**/*.trx'
+    failTaskOnFailedTests: true  
+  displayName: 'publish test results'
 
 - task: DotNetCoreCLI@2
   inputs:
