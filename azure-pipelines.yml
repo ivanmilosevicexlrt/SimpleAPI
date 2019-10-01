@@ -40,9 +40,10 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
   displayName: 'build API: configuration $(buildConfiguration)'
 
- - task: ArchiveFiles@2
-   inputs:
+- task: ArchiveFiles@2
+  inputs:
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+  displayName: 'Archive file' 
 
      
