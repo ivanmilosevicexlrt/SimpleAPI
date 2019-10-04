@@ -1,0 +1,42 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [
+        {
+            "name": "ivandemoplan",
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2018-02-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "F1",
+                "capacity": 1
+            },
+            "tags": {
+                "displayName": "ivandemoplan"
+            },
+            "properties": {
+                "name": "ivandemoplan"
+            }
+        },
+        {
+            "name": "ivanmilosevic3232",
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2016-08-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/ivandemoplan')]": "Resource",
+                "displayName": "ivanmilosevic3232"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', 'ivandemoplan')]"
+            ],
+            "properties": {
+                "name": "ivanmilosevic3232",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'ivandemoplan')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
