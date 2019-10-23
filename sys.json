@@ -1,0 +1,6 @@
+{
+    "branchName" : " __BRANCH__", 
+    "developer" : " __AUTHOR__",
+    "tickets" : "Release",
+    "commit" : "__COMMIT__"
+}
