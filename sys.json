@@ -1,6 +1,6 @@
 {
     "branchName" : "__BRANCH__", 
     "developer" : " __AUTHOR__",
-    "tickets" : "Release",
+    "message" : "__MSG__",
     "commit" : "__COMMIT__"
 }
